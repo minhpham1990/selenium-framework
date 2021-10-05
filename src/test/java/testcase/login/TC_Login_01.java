@@ -16,4 +16,13 @@ public class TC_Login_01 extends BaseTest {
         homePage.topmenu().clickLoginMenu();
         homePage.sleep(2000);
     }
+
+    @Test
+    public void login02(){
+        WebDriver browser = getDriver();
+        HomePage homePage = new HomePage(browser);
+        homePage.openPage();
+        homePage.topmenu().clickSignupMenu();
+        homePage.sleep(2000);
+    }
 }

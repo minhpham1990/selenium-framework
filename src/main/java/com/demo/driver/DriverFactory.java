@@ -1,10 +1,7 @@
 package com.demo.driver;
 
-import com.beust.jcommander.Parameter;
 import org.openqa.selenium.WebDriver;
 
-import java.util.HashMap;
-import java.util.Map;
 
 public class DriverFactory {
     private WebDriver driver;

@@ -2,3 +2,5 @@
 /target/
 /screenshots/
 /logs/
+/allure-report/
+/allure-results/
