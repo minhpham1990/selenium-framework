@@ -1,4 +1,24 @@
 package com.demo.pages.object;
 
-public class HomePage {
+import com.demo.action.ActionGen;
+import com.demo.pages.component.TopMenu;
+import com.demo.pages.ui.common.TopMenuUI;
+import org.openqa.selenium.WebDriver;
+
+public class HomePage extends ActionGen{
+
+    private WebDriver pageDriver;
+
+    public HomePage(WebDriver driver){
+        this.pageDriver=driver;
+    }
+
+    public TopMenu topmenu(){
+        return new TopMenu(pageDriver);
+    }
+
+    public void openPage(){
+        navigate(pageDriver,"https://www.demoblaze.com/index.html");
+    }
+
 }

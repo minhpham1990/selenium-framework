@@ -1,4 +1,9 @@
 package com.demo.pages.ui;
 
-public class HomeUI {
+import com.demo.pages.ui.common.TopMenuUI;
+
+
+public class HomePageUI extends TopMenuUI {
+
+
 }
