@@ -57,6 +57,15 @@
             <scope>test</scope>
         </dependency>
         <!-- allure report -->
+        <!-- junit read csv-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.7.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- junit read csv-->
+
     </dependencies>
 
     <build>

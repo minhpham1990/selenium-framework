@@ -12,8 +12,12 @@ public class BaseTest {
     private static ThreadLocal<DriverFactory> driverThread = new ThreadLocal<>();
     private static List<DriverFactory> webdriverThreadPool = Collections.synchronizedList(new ArrayList<>());
 
+    public WebDriver getDriver(){
+        return driverThread.get().getDriver();
+    }
+
     @BeforeSuite(alwaysRun = true)
-    public static void initWebdriverObject(){
+    public void initWebdriverObject(){
         driverThread = ThreadLocal.withInitial(() -> {
             DriverFactory webDriverThread = new DriverFactory();
             webdriverThreadPool.add(webDriverThread);
@@ -21,12 +25,8 @@ public class BaseTest {
         });
     }
 
-    public static WebDriver getDriver(){
-        return driverThread.get().getDriver();
-    }
-
     @AfterSuite(alwaysRun = true)
-    public static void quitDriver(){
+    public void quitDriver(){
         for(DriverFactory driver:webdriverThreadPool){
             driver.quit();
         }

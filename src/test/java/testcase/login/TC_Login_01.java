@@ -1,28 +1,30 @@
 package testcase.login;
 
-import com.demo.action.ActionGen;
 import com.demo.pages.object.HomePage;
-import org.openqa.selenium.WebDriver;
+import com.demo.pages.object.LoginModal;
 import org.testng.annotations.Test;
 import testcase.common.BaseTest;
 
 public class TC_Login_01 extends BaseTest {
-
+    HomePage homePage;
+    LoginModal loginModal;
     @Test
-    public void login01(){
-        WebDriver browser = getDriver();
-        HomePage homePage = new HomePage(browser);
+    public void login02(){
+        homePage = new HomePage(getDriver());
         homePage.openPage();
-        homePage.topmenu().clickLoginMenu();
+        homePage.getTopmenu().clickLoginMenu();
+        loginModal = new LoginModal(getDriver());
+        loginModal.enterUsername("baminh");
+        loginModal.enterPassword("123");
+        loginModal.clickLoginBtn();
         homePage.sleep(2000);
     }
 
-    @Test
-    public void login02(){
-        WebDriver browser = getDriver();
-        HomePage homePage = new HomePage(browser);
+//    @Test
+    public void login01(){
+        HomePage homePage = new HomePage(getDriver());
         homePage.openPage();
-        homePage.topmenu().clickSignupMenu();
+        homePage.getTopmenu().clickSignupMenu();
         homePage.sleep(2000);
     }
 }

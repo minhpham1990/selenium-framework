@@ -2,7 +2,6 @@ package com.demo.pages.object;
 
 import com.demo.action.ActionGen;
 import com.demo.pages.component.TopMenu;
-import com.demo.pages.ui.common.TopMenuUI;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage extends ActionGen{
@@ -13,7 +12,7 @@ public class HomePage extends ActionGen{
         this.pageDriver=driver;
     }
 
-    public TopMenu topmenu(){
+    public TopMenu getTopmenu(){
         return new TopMenu(pageDriver);
     }
 
