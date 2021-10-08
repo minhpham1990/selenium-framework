@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 
 
 public class ActionGen {
-
     public void navigate(WebDriver driver, String url){
         MyLogger.logInfo("Navigate to: "+url);
         driver.get(url);

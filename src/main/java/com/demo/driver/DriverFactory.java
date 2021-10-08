@@ -1,14 +1,15 @@
 package com.demo.driver;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Parameters;
 
 
 public class DriverFactory {
     private WebDriver driver;
 
-    public WebDriver getDriver() {
+    public WebDriver getDriver(DriverType type) {
         if(driver==null){
-            driver = DriverManage.getBrowserDriver("firefox");
+            driver = DriverManage.getBrowserDriver(type);
         }
         return driver;
     }

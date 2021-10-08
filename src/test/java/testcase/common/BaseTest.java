@@ -1,10 +1,11 @@
 package testcase.common;
 
+import com.demo.action.ActionGen;
 import com.demo.driver.DriverFactory;
+import com.demo.driver.DriverType;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
+import org.testng.annotations.Optional;
 
 import java.util.*;
 
@@ -13,7 +14,7 @@ public class BaseTest {
     private static List<DriverFactory> webdriverThreadPool = Collections.synchronizedList(new ArrayList<>());
 
     public WebDriver getDriver(){
-        return driverThread.get().getDriver();
+        return driverThread.get().getDriver(DriverType.FIREFOX);
     }
 
     @BeforeSuite(alwaysRun = true)
