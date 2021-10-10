@@ -8,4 +8,5 @@ public class TopMenuUI {
     public static final By TOPMENU_ABOUT = By.xpath("//a[text()='About us']");
     public static final By TOPMENU_LOGIN = By.xpath("//a[text()='Log in']");
     public static final By TOPMENU_SIGNUP = By.xpath("//a[text()='Sign up']");
+    public static final By TOPMENU_LOGOUT = By.xpath("//a[text()='Log out']");
 }

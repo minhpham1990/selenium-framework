@@ -24,17 +24,26 @@ public class TC_Login_01 extends BaseTest {
         driver = getDriver();
     }
 
-    @Test(dataProvider = "login01.data")
+    @Test(dataProvider = "login01.data") //using testdata Excel
     public void login01(String user, String pass){
         homePage = new HomePage(driver);
         homePage.openPage();
         homePage.getTopmenu().clickLoginMenu();
         loginModal = new LoginModal(driver);
-        loginModal.enterUsername(user);
-        loginModal.enterPassword(pass);
-        loginModal.clickLoginBtn();
+        loginModal.loginValidCred(user, pass);
+        homePage.sleep(2000);
+        homePage.getTopmenu().clickLogoutMenu();
         homePage.sleep(2000);
     }
+
+//    @Test(dataProvider = "login01.data")
+//    public void login02(){
+//        homePage = new HomePage(driver);
+//        homePage.openPage();
+//        homePage.getTopmenu().clickLoginMenu();
+//        loginModal = new LoginModal(driver);
+//        homePage.sleep(2000);
+//    }
 
     @DataProvider(name = "login01.data")
     public Object[][] loginData(){

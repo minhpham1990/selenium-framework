@@ -23,13 +23,16 @@ public class TopMenu extends ActionGen {
         click(pageDriver, TopMenuUI.TOPMENU_ABOUT);
     }
 
-
     public void clickLoginMenu(){
         click(pageDriver, TopMenuUI.TOPMENU_LOGIN);
     }
 
     public void clickSignupMenu(){
         click(pageDriver, TopMenuUI.TOPMENU_SIGNUP);
+    }
+
+    public void clickLogoutMenu(){
+        click(pageDriver, TopMenuUI.TOPMENU_LOGOUT);
     }
 
 }
