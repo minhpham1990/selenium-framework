@@ -4,12 +4,10 @@ import com.demo.action.ActionGen;
 import com.demo.pages.component.TopMenu;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends ActionGen{
-
-    private WebDriver pageDriver;
+public class HomePage extends BasePage{
 
     public HomePage(WebDriver driver){
-        this.pageDriver=driver;
+        super(driver);
     }
 
     public TopMenu getTopmenu(){

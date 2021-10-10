@@ -1,4 +1,10 @@
 package com.demo.pages.object;
 
-public class CartPage {
+import org.openqa.selenium.WebDriver;
+
+public class CartPage extends BasePage{
+
+    public CartPage(WebDriver driver){
+        super(driver);
+    }
 }

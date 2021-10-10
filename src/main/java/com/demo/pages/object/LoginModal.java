@@ -4,11 +4,10 @@ import com.demo.action.ActionGen;
 import com.demo.pages.ui.LoginModalUI;
 import org.openqa.selenium.WebDriver;
 
-public class LoginModal extends ActionGen {
-    private WebDriver pageDriver;
+public class LoginModal extends BasePage{
 
     public LoginModal(WebDriver driver) {
-        this.pageDriver = driver;
+        super(driver);
     }
 
     public void enterUsername(String value){
@@ -25,5 +24,11 @@ public class LoginModal extends ActionGen {
 
     public void clickCancelBtn(){
         click(pageDriver, LoginModalUI.CANCEL_SELECTOR);
+    }
+
+    public void loginValidCred(String user, String pass){
+        enterUsername(user);
+        enterPassword(pass);
+        clickLoginBtn();
     }
 }
