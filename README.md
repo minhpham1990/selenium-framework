@@ -1,10 +1,8 @@
 This is demo automation WebUI 
 
-**Run test**
+##Run test
 mvn clean test -Dsurefire.suiteXmlFiles=testsuite/SmokeTest.xml
 
-**Run report**
-allure report 
-allure open 
-OR
-allure serve ./allure-results/
+##Run report
+- Using command `allure generate --clean` then `allure open `
+- OR using command `allure serve ./allure-results/`
