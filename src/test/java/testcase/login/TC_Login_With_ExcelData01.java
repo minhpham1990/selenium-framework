@@ -13,7 +13,7 @@ import testcase.common.BaseTest;
 
 import java.io.File;
 
-public class TC_Login_01 extends BaseTest {
+public class TC_Login_With_ExcelData01 extends BaseTest {
     HomePage homePage;
     LoginModal loginModal;
     private WebDriver driver;
@@ -22,7 +22,7 @@ public class TC_Login_01 extends BaseTest {
         driver = getDriver();
     }
 
-    @Test(dataProvider = "login01.data", description = "Login with valid user") //using testdata Excel
+    @Test(dataProvider = "login01.data", description = "Login with valid user using excel data") //using testdata Excel
     public void login01(String user, String pass){
         homePage = new HomePage(driver);
         homePage.openPage();
@@ -36,12 +36,11 @@ public class TC_Login_01 extends BaseTest {
 
     @Test(description = "Login with invalid user")
     public void login02(){
-        dataJson data = dataJson.get("src/test/data/login01.json");
         homePage = new HomePage(driver);
         homePage.openPage();
         homePage.getTopmenu().clickLoginMenu();
         loginModal = new LoginModal(driver);
-        loginModal.loginValidCred(data.getName(), data.getPass());
+        loginModal.loginValidCred("hoho", "123");
         homePage.sleep(3000);
     }
 

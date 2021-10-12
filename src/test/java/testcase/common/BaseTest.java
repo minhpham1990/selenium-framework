@@ -1,11 +1,10 @@
 package testcase.common;
 
-import com.demo.action.ActionGen;
 import com.demo.driver.DriverFactory;
 import com.demo.driver.DriverType;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import org.testng.annotations.Optional;
+
 
 import java.util.*;
 
