@@ -57,14 +57,13 @@
             <scope>test</scope>
         </dependency>
         <!-- allure report -->
-        <!-- junit read csv-->
+
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.7.2</version>
-            <scope>test</scope>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.12.3</version>
         </dependency>
-        <!-- junit read csv-->
+
     </dependencies>
 
     <build>
@@ -75,6 +74,10 @@
                 <version>3.0.0-M5</version>
                 <!-- allure report -->
                 <configuration>
+<!--                    <suiteXmlFiles>-->
+<!--                        TestNG suite XML files-->
+<!--                        <suiteXmlFile>${suiteXmlFiles}</suiteXmlFile>-->
+<!--                    </suiteXmlFiles>-->
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.5/aspectjweaver-1.9.5.jar"
                     </argLine>
