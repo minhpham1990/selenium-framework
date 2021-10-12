@@ -5,8 +5,6 @@ import com.demo.driver.DriverType;
 import com.demo.pages.object.HomePage;
 import com.demo.pages.object.LoginModal;
 import com.demo.utils.ExcelReader;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -24,26 +22,28 @@ public class TC_Login_01 extends BaseTest {
         driver = getDriver();
     }
 
-    @Test(dataProvider = "login01.data") //using testdata Excel
+    @Test(dataProvider = "login01.data", description = "Login with valid user") //using testdata Excel
     public void login01(String user, String pass){
         homePage = new HomePage(driver);
         homePage.openPage();
         homePage.getTopmenu().clickLoginMenu();
         loginModal = new LoginModal(driver);
         loginModal.loginValidCred(user, pass);
-        homePage.sleep(2000);
+        homePage.sleep(3000);
         homePage.getTopmenu().clickLogoutMenu();
         homePage.sleep(2000);
     }
 
-//    @Test(dataProvider = "login01.data")
-//    public void login02(){
-//        homePage = new HomePage(driver);
-//        homePage.openPage();
-//        homePage.getTopmenu().clickLoginMenu();
-//        loginModal = new LoginModal(driver);
-//        homePage.sleep(2000);
-//    }
+    @Test(description = "Login with invalid user")
+    public void login02(){
+        dataJson data = dataJson.get("src/test/data/login01.json");
+        homePage = new HomePage(driver);
+        homePage.openPage();
+        homePage.getTopmenu().clickLoginMenu();
+        loginModal = new LoginModal(driver);
+        loginModal.loginValidCred(data.getName(), data.getPass());
+        homePage.sleep(3000);
+    }
 
     @DataProvider(name = "login01.data")
     public Object[][] loginData(){
