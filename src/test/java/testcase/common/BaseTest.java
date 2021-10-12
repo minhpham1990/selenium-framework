@@ -16,6 +16,10 @@ public class BaseTest {
         return driverThread.get().getDriver(DriverType.FIREFOX);
     }
 
+    public WebDriver getRemoteDriver(){
+        return driverThread.get().getRemmoteDriver(DriverType.FIREFOX);
+    }
+
     @BeforeSuite(alwaysRun = true)
     public void initWebdriverObject(){
         driverThread = ThreadLocal.withInitial(() -> {

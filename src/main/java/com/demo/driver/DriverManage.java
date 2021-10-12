@@ -3,6 +3,10 @@ package com.demo.driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.URL;
 
 
 public class DriverManage {
@@ -23,6 +27,27 @@ public class DriverManage {
         }
         return driver;
     }
+
+    public static WebDriver getRemoteDriver(DriverType type){
+        switch (type){
+            case FIREFOX:
+                String hub = "https://phambaminh9990:J9dSZSonFj0DjRePvcVPrY8SIWXUIffJT05JhmxL6Tpc7vTTlK@hub.lambdatest.com/wd/hub";
+                DesiredCapabilities capabilities = new DesiredCapabilities();
+                capabilities.setCapability("build", "my build");
+                capabilities.setCapability("name", "my test name");
+                capabilities.setCapability("platform", "Windows 10");
+                capabilities.setCapability("browserName", "Firefox");
+                capabilities.setCapability("version","92.0");
+                try {
+                    driver = new RemoteWebDriver(new URL(hub), capabilities);
+                }catch (Exception e ){
+                    e.printStackTrace();
+                }
+        }
+        return driver;
+    }
+
+
 
 
 

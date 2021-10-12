@@ -14,6 +14,13 @@ public class DriverFactory {
         return driver;
     }
 
+    public WebDriver getRemmoteDriver(DriverType type) {
+        if(driver==null){
+            driver = DriverManage.getRemoteDriver(type);
+        }
+        return driver;
+    }
+
     public void quit() {
         if (driver != null) {
             driver.quit();
