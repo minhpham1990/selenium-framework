@@ -5,8 +5,11 @@ import com.demo.driver.DriverType;
 import com.demo.pages.object.HomePage;
 import com.demo.pages.object.LoginModal;
 import com.demo.utils.ExcelReader;
+import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import testcase.common.BaseTest;
@@ -17,12 +20,13 @@ public class TC_Login_With_ExcelData01 extends BaseTest {
     HomePage homePage;
     LoginModal loginModal;
     private WebDriver driver;
-    @BeforeClass
+    @BeforeTest
     public void setupTestCase(){
         driver = getDriver();
     }
 
     @Test(dataProvider = "login01.data", description = "Login with valid user using excel data") //using testdata Excel
+    @Description("Test case using data excel file , and then login with them")
     public void login01(String user, String pass){
         homePage = new HomePage(driver);
         homePage.openPage();
@@ -42,6 +46,7 @@ public class TC_Login_With_ExcelData01 extends BaseTest {
         loginModal = new LoginModal(driver);
         loginModal.loginValidCred("hoho", "123");
         homePage.sleep(3000);
+//        Assert.fail("Testscreenshot");
     }
 
     @DataProvider(name = "login01.data")

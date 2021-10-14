@@ -5,7 +5,6 @@ import com.demo.pages.component.TopMenu;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage extends BasePage{
-
     public HomePage(WebDriver driver){
         super(driver);
     }
@@ -15,7 +14,7 @@ public class HomePage extends BasePage{
     }
 
     public void openPage(){
-        navigate(pageDriver,"https://www.demoblaze.com/index.html");
+        navigate("https://www.demoblaze.com/index.html");
     }
 
 }

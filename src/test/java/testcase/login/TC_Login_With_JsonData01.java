@@ -5,17 +5,22 @@ import com.demo.entity.Credential;
 import com.demo.pages.object.HomePage;
 import com.demo.pages.object.LoginModal;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import testcase.common.BaseTest;
 
 import java.io.File;
+import java.net.URL;
 
 public class TC_Login_With_JsonData01 extends BaseTest {
     HomePage homePage;
     LoginModal loginModal;
     private WebDriver driver;
-    @BeforeClass
+
+    @BeforeTest
     public void setupTestCase(){
         driver = getDriver();
     }

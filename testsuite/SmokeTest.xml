@@ -4,7 +4,7 @@
     <parameter name="browser" value="firefox"></parameter>
     <test name="Login">
         <classes>
-            <class name="testcase.login.TC_Login_With_JsonData01" />
+            <class name="testcase.login.TC_Login_With_ExcelData01" />
         </classes>
     </test>
 </suite>
