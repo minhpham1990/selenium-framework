@@ -1,9 +1,9 @@
 package com.demo.pages.object;
 
-import com.demo.action.ActionGen;
 import com.demo.pages.ui.LoginModalUI;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginModal extends BasePage{
 
@@ -11,7 +11,7 @@ public class LoginModal extends BasePage{
         super(driver);
     }
 
-    @Step("Input username as {value}")
+    @Step("Input username as {value}") //using to display on allure report
     public void enterUsername(String value){
         enterText(LoginModalUI.USERNAME_SELECTOR, value);
     }
@@ -34,5 +34,9 @@ public class LoginModal extends BasePage{
         enterUsername(user);
         enterPassword(pass);
         clickLoginBtn();
+    }
+
+    public void acceptLoginAllert(){
+        alertAccept();
     }
 }

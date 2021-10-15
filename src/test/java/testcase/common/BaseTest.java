@@ -27,7 +27,11 @@ public class BaseTest {
     private static List<DriverFactory> webdriverThreadPool = Collections.synchronizedList(new ArrayList<>());
 
     public WebDriver getDriver(){
-        return driverThread.get().getDriver(DriverType.FIREFOX);
+        return driverThread.get().getDriver();
+    }
+
+    public WebDriver getDriver(String browserName){
+        return driverThread.get().getDriver(browserName);
     }
 
     public WebDriver getRemoteDriver(){

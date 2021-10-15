@@ -12,14 +12,23 @@ import java.net.URL;
 public class DriverManage {
     private static WebDriver driver;
     private static final String rootPath = System.getProperty("user.dir");
-    public static WebDriver getBrowserDriver(DriverType type){
-        switch (type){
-            case CHROME:
+
+
+    public static WebDriver getBrowserDriver(){
+        String driverFFPath = rootPath+"/drivers/geckodriver.exe";
+        System.setProperty("webdriver.gecko.driver",driverFFPath);
+        return driver = new FirefoxDriver();
+    }
+
+    public static WebDriver getBrowserDriver(String browserName){
+        switch (browserName.toLowerCase()){
+            case "chrome":
                 String driverChromePath = rootPath+"/drivers/chromedriver.exe";
                 System.setProperty("webdriver.chrome.driver",driverChromePath);
                 driver = new ChromeDriver();
+                driver.manage().window().maximize();
                 break;
-            case FIREFOX:
+            case "firefox":
                 String driverFFPath = rootPath+"/drivers/geckodriver.exe";
                 System.setProperty("webdriver.gecko.driver",driverFFPath);
                 driver = new FirefoxDriver();

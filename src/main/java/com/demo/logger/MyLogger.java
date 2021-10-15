@@ -1,5 +1,4 @@
 package com.demo.logger;
-import com.demo.action.ActionGen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 public class MyLogger {
@@ -7,5 +6,9 @@ public class MyLogger {
 
     public static void logInfo(String msg){
         log.info(msg);
+    }
+
+    public static void logError(String msg){
+        log.error(msg);
     }
 }

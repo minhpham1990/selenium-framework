@@ -1,8 +1,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="Smoke Test" verbose="1" >
-    <parameter name="browser" value="firefox"></parameter>
-    <test name="Login">
+<suite name="Smoke Test">
+    <test name="LoginWithChrome">
+        <parameter name="browser" value="Chrome"></parameter>
         <classes>
             <class name="testcase.login.TC_Login_With_ExcelData01" />
         </classes>

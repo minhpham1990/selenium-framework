@@ -2,16 +2,13 @@ package testcase.login;
 
 import com.demo.constants.MyConstant;
 import com.demo.driver.DriverType;
+import com.demo.logger.MyLogger;
 import com.demo.pages.object.HomePage;
 import com.demo.pages.object.LoginModal;
 import com.demo.utils.ExcelReader;
 import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import testcase.common.BaseTest;
 
 import java.io.File;
@@ -20,9 +17,11 @@ public class TC_Login_With_ExcelData01 extends BaseTest {
     HomePage homePage;
     LoginModal loginModal;
     private WebDriver driver;
+
     @BeforeTest
-    public void setupTestCase(){
-        driver = getDriver();
+    @Parameters({"browser"})
+    public void setupTestCase(String browser){
+        driver = getDriver(browser);
     }
 
     @Test(dataProvider = "login01.data", description = "Login with valid user using excel data") //using testdata Excel
@@ -35,7 +34,6 @@ public class TC_Login_With_ExcelData01 extends BaseTest {
         loginModal.loginValidCred(user, pass);
         homePage.sleep(3000);
         homePage.getTopmenu().clickLogoutMenu();
-        homePage.sleep(2000);
     }
 
     @Test(description = "Login with invalid user")
@@ -44,8 +42,8 @@ public class TC_Login_With_ExcelData01 extends BaseTest {
         homePage.openPage();
         homePage.getTopmenu().clickLoginMenu();
         loginModal = new LoginModal(driver);
-        loginModal.loginValidCred("hoho", "123");
-        homePage.sleep(3000);
+        loginModal.loginValidCred("hoho", "1123123");
+        loginModal.acceptLoginAllert();
 //        Assert.fail("Testscreenshot");
     }
 

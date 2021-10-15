@@ -9,4 +9,5 @@ public class BasePage extends ActionGen {
         super(driver);
         this.pageDriver = driver;
     }
+
 }
