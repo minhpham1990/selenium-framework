@@ -1,8 +1,6 @@
 package testcase.login;
 
 import com.demo.constants.MyConstant;
-import com.demo.driver.DriverType;
-import com.demo.logger.MyLogger;
 import com.demo.pages.object.HomePage;
 import com.demo.pages.object.LoginModal;
 import com.demo.utils.ExcelReader;
@@ -14,7 +12,7 @@ import testcase.common.BaseTest;
 import java.io.File;
 
 public class TC_Login_With_ExcelData01 extends BaseTest {
-    HomePage homePage;
+    HomePage homePage=null;
     LoginModal loginModal;
     private WebDriver driver;
 
@@ -43,7 +41,7 @@ public class TC_Login_With_ExcelData01 extends BaseTest {
         homePage.getTopmenu().clickLoginMenu();
         loginModal = new LoginModal(driver);
         loginModal.loginValidCred("hoho", "1123123");
-        loginModal.acceptLoginAllert();
+        loginModal.acceptLoginAlert();
 //        Assert.fail("Testscreenshot");
     }
 

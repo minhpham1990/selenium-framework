@@ -3,6 +3,7 @@ package com.demo.driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -31,7 +32,7 @@ public class DriverManage {
             case "firefox":
                 String driverFFPath = rootPath+"/drivers/geckodriver.exe";
                 System.setProperty("webdriver.gecko.driver",driverFFPath);
-                driver = new FirefoxDriver();
+                driver = new FirefoxDriver(getFireFoxOptions());
                 break;
         }
         return driver;
@@ -54,6 +55,20 @@ public class DriverManage {
                 }
         }
         return driver;
+    }
+
+    public static FirefoxOptions getFireFoxOptions(){
+        FirefoxOptions ffOptions = new FirefoxOptions();
+        ffOptions.setHeadless(true);
+        ffOptions.addPreference("browser.download.manager.focusWhenStarting", true);
+        ffOptions.addPreference("browser.download.useDownloadDir", false);
+        ffOptions.addPreference("browser.helperApps.alwaysAsk.force", true);
+        ffOptions.addPreference("browser.download.manager.alertOnEXEOpen", false);
+        ffOptions.addPreference("browser.download.manager.closeWhenDone", true);
+        ffOptions.addPreference("browser.download.manager.showAlertOnComplete", false);
+        ffOptions.addPreference("browser.download.manager.useWindow", false);
+        ffOptions.addPreference("services.sync.prefs.sync.browser.download.manager.showWhenStarting", false);
+        return ffOptions;
     }
 
 

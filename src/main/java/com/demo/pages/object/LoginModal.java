@@ -36,7 +36,7 @@ public class LoginModal extends BasePage{
         clickLoginBtn();
     }
 
-    public void acceptLoginAllert(){
+    public void acceptLoginAlert(){
         alertAccept();
     }
 }
