@@ -19,7 +19,7 @@ public class DriverManage {
         if(System.getProperty("os.name").startsWith("Windows"))
             return DRIVER_PATH + "geckodriver.exe";
         else
-            return DRIVER_PATH + "geckodriverLinux32";
+            return DRIVER_PATH + "geckodriverLinux";
     }
 
 
