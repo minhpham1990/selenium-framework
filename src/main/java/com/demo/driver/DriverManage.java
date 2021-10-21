@@ -34,7 +34,7 @@ public class DriverManage {
                 if(System.getProperty("os.name").startsWith("Windows")){
                     driverFFPath= rootPath+"/drivers/geckodriver.exe";
                 }else {
-                    driverFFPath= rootPath+"/drivers/chromedriverLinux.exe";
+                    driverFFPath= rootPath+"/drivers/chromedriverLinux";
                 }
                 System.setProperty("webdriver.gecko.driver",driverFFPath);
                 driver = new FirefoxDriver(getFireFoxOptions());
