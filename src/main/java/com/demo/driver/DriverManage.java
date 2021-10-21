@@ -12,11 +12,19 @@ import java.net.URL;
 
 public class DriverManage {
     private static WebDriver driver;
-    private static final String rootPath = System.getProperty("user.dir");
+    private static final String SYSTEM_PATH = System.getProperty("user.dir");
+    public static String DRIVER_PATH = SYSTEM_PATH + "/drivers/";
+
+    public static String getFFDriverPath(){
+        if(System.getProperty("os.name").startsWith("Windows"))
+            return DRIVER_PATH + "geckodriver.exe";
+        else
+            return DRIVER_PATH + "geckodriverLinux";
+    }
 
 
     public static WebDriver getBrowserDriver(){
-        String driverFFPath = rootPath+"/drivers/geckodriver.exe";
+        String driverFFPath = SYSTEM_PATH +"/drivers/geckodriver.exe";
         System.setProperty("webdriver.gecko.driver",driverFFPath);
         return driver = new FirefoxDriver();
     }
@@ -24,19 +32,15 @@ public class DriverManage {
     public static WebDriver getBrowserDriver(String browserName){
         switch (browserName.toLowerCase()){
             case "chrome":
-                String driverChromePath = rootPath+"/drivers/chromedriver.exe";
+                String driverChromePath = SYSTEM_PATH +"/drivers/chromedriver.exe";
                 System.setProperty("webdriver.chrome.driver",driverChromePath);
                 driver = new ChromeDriver();
                 driver.manage().window().maximize();
                 break;
             case "firefox":
-                String driverFFPath;
-                if(System.getProperty("os.name").startsWith("Windows")){
-                    driverFFPath= rootPath+"/drivers/geckodriver.exe";
-                }else {
-                    driverFFPath= rootPath+"/drivers/geckodriverLinux";
-                }
-                System.setProperty("webdriver.gecko.driver",driverFFPath);
+                if(System.getProperty("os.name").startsWith("Linux"))
+                    setPermissionFileOnLinux();
+                System.setProperty("webdriver.gecko.driver",getFFDriverPath());
                 driver = new FirefoxDriver(getFireFoxOptions());
                 break;
         }
@@ -75,6 +79,17 @@ public class DriverManage {
         ffOptions.addPreference("services.sync.prefs.sync.browser.download.manager.showWhenStarting", false);
         return ffOptions;
     }
+
+    public static void setPermissionFileOnLinux(){
+        try{
+            String command = "chmod +x " + getFFDriverPath();
+            Runtime.getRuntime().exec(command);
+        }catch (Exception e){
+
+        }
+    }
+
+
 
 
 
