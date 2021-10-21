@@ -13,13 +13,13 @@ import java.net.URL;
 public class DriverManage {
     private static WebDriver driver;
     private static final String SYSTEM_PATH = System.getProperty("user.dir");
-    public static String DRIVER_PATH = SYSTEM_PATH + "/drivers/";
+    private static final String DRIVER_PATH = SYSTEM_PATH + "/drivers/";
 
     public static String getFFDriverPath(){
         if(System.getProperty("os.name").startsWith("Windows"))
             return DRIVER_PATH + "geckodriver.exe";
         else
-            return DRIVER_PATH + "geckodriverLinux";
+            return DRIVER_PATH + "geckodriverLinux32";
     }
 
 
