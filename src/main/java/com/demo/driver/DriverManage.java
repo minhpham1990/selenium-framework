@@ -40,6 +40,7 @@ public class DriverManage {
             case "firefox":
                 if(System.getProperty("os.name").startsWith("Linux"))
                     setPermissionFileOnLinux();
+                System.out.println("Firefox driver path: "+getFFDriverPath());
                 System.setProperty("webdriver.gecko.driver",getFFDriverPath());
                 driver = new FirefoxDriver(getFireFoxOptions());
                 break;
