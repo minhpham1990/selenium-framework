@@ -30,7 +30,12 @@ public class DriverManage {
                 driver.manage().window().maximize();
                 break;
             case "firefox":
-                String driverFFPath = rootPath+"/drivers/geckodriver.exe";
+                String driverFFPath;
+                if(System.getProperty("os.name").startsWith("Windows")){
+                    driverFFPath= rootPath+"/drivers/geckodriver.exe";
+                }else {
+                    driverFFPath= rootPath+"/drivers/chromedriverLinux.exe";
+                }
                 System.setProperty("webdriver.gecko.driver",driverFFPath);
                 driver = new FirefoxDriver(getFireFoxOptions());
                 break;
