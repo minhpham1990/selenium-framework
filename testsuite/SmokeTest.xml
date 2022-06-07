@@ -4,14 +4,14 @@
     <test name="LoginWithChrome">
         <parameter name="browser" value="Chrome"></parameter>
         <classes>
-            <class name="testcase.login.TC_Login_With_ExcelData01" />
+            <class name="testcase.login.TC_Example" />
         </classes>
     </test>
 
-    <test name="LoginWithFF">
-        <parameter name="browser" value="firefox"></parameter>
-        <classes>
-            <class name="testcase.login.TC_Login_With_ExcelData01" />
-        </classes>
-    </test>
+<!--    <test name="LoginWithFF">-->
+<!--        <parameter name="browser" value="firefox"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="testcase.login.TC_Login_With_ExcelData01" />-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

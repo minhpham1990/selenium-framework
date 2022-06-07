@@ -1,6 +1,5 @@
 package testcase.common;
 
-import com.demo.action.ActionGen;
 import com.demo.constants.MyConstant;
 import com.demo.driver.DriverFactory;
 import com.demo.driver.DriverType;
@@ -41,9 +40,9 @@ public class BaseTest {
     @BeforeSuite(alwaysRun = true)
     public void initWebdriverObject(){
         driverThread = ThreadLocal.withInitial(() -> {
-            DriverFactory webDriverThread = new DriverFactory();
-            webdriverThreadPool.add(webDriverThread);
-            return webDriverThread;
+            DriverFactory driverFactory = new DriverFactory();
+            webdriverThreadPool.add(driverFactory);
+            return driverFactory;
         });
     }
 
