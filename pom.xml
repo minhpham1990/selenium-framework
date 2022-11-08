@@ -11,12 +11,12 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>4.6.0</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>25.0-jre</version>
+            <version>31.1-jre</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -91,14 +91,14 @@
 <!--                        <suiteXmlFile>${suiteXmlFiles}</suiteXmlFile>-->
 <!--                    </suiteXmlFiles>-->
                     <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.5/aspectjweaver-1.9.5.jar"
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar"
                     </argLine>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.5</version>
+                        <version>1.9.6</version>
                     </dependency>
                 </dependencies>
                 <!-- allure report -->

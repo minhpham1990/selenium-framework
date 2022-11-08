@@ -32,16 +32,16 @@ public class DriverManage {
     public static WebDriver getBrowserDriver(String browserName){
         switch (browserName.toLowerCase()){
             case "chrome":
-                String driverChromePath = SYSTEM_PATH +"/drivers/chromedriver.exe";
-                System.setProperty("webdriver.chrome.driver",driverChromePath);
+//                String driverChromePath = SYSTEM_PATH +"/drivers/chromedriver.exe";
+//                System.setProperty("webdriver.chrome.driver",driverChromePath);
                 driver = new ChromeDriver();
                 driver.manage().window().maximize();
                 break;
             case "firefox":
-                if(System.getProperty("os.name").startsWith("Linux"))
-                    setPermissionFileOnLinux();
-                System.out.println("Firefox driver path: "+getFFDriverPath());
-                System.setProperty("webdriver.gecko.driver",getFFDriverPath());
+//                if(System.getProperty("os.name").startsWith("Linux"))
+//                    setPermissionFileOnLinux();
+//                System.out.println("Firefox driver path: "+getFFDriverPath());
+//                System.setProperty("webdriver.gecko.driver",getFFDriverPath());
                 driver = new FirefoxDriver(getFireFoxOptions());
                 break;
         }

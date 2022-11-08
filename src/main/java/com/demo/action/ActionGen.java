@@ -12,6 +12,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.TestException;
 
+import java.time.Duration;
+
 
 public class ActionGen {
 //    private static WebDriver actionDriver;
@@ -70,13 +72,13 @@ public class ActionGen {
 
     /* My Alert*/
     public static void alertAccept(){
-        wait = new WebDriverWait(getActionDriver(), 15);
+        wait = new WebDriverWait(getActionDriver(), Duration.ofSeconds(15));
         wait.until(ExpectedConditions.alertIsPresent());
         getActionDriver().switchTo().alert().accept();
     }
 
     public static void alertDismiss(){
-        wait = new WebDriverWait(getActionDriver(), 15);
+        wait = new WebDriverWait(getActionDriver(), Duration.ofSeconds(15));
         wait.until(ExpectedConditions.alertIsPresent());
         getActionDriver().switchTo().alert().dismiss();
     }
@@ -85,7 +87,7 @@ public class ActionGen {
     /* My Waits */
     public static void waitElementVisible(By selector, long timeout){ //make sure element is displayed on UI
         MyLogger.logInfo("Start wait for element to be visible"+selector);
-        wait = new WebDriverWait(getActionDriver(), timeout);
+        wait = new WebDriverWait(getActionDriver(), Duration.ofSeconds(timeout));
         try{
             wait.until(ExpectedConditions.visibilityOfElementLocated(selector));
         }catch (Exception e){
@@ -97,7 +99,7 @@ public class ActionGen {
 
     public static void waitElementPresence(By selector, long timeout){ //make sure element is existed on DOM , maybe displayed/ undisplayed on UI
         MyLogger.logInfo("Start wait for element to be visible"+selector);
-        wait = new WebDriverWait(getActionDriver(), timeout);
+        wait = new WebDriverWait(getActionDriver(), Duration.ofSeconds(timeout));
         try{
             wait.until(ExpectedConditions.presenceOfElementLocated(selector));
         }catch (Exception e){
@@ -109,7 +111,7 @@ public class ActionGen {
 
     public static void waitElementToBeClickable(By selector, long timeout){
             MyLogger.logInfo("Start wait for element to be clickable"+selector);
-            wait = new WebDriverWait(getActionDriver(), timeout);
+            wait = new WebDriverWait(getActionDriver(), Duration.ofSeconds(timeout));
             try{
                 wait.until(ExpectedConditions.elementToBeClickable(selector));
             }catch (Exception e){
